@@ -4,7 +4,12 @@ import TodoApp from "./Components/TodoApp";
 import "./App.css";
 
 
+class App extends React.Component{
+  render(){
+    return(
+      <TodoApp/>
+    );
+  }
+}
 
-
-
-export default TodoApp;
+export default App;

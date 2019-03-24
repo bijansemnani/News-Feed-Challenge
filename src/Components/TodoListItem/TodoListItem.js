@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 
 class TodoListItem extends React.Component {
   constructor(props) {
@@ -7,11 +7,11 @@ class TodoListItem extends React.Component {
     this.onClickDone = this.onClickDone.bind(this);
   }
   onClickClose() {
-    var index = parseInt(this.props.index);
+    var index = parseInt(this.props.index, 10);
     this.props.removeItem(index);
   }
   onClickDone() {
-    var index = parseInt(this.props.index);
+    var index = parseInt(this.props.index, 10);
     this.props.markTodoDone(index);
   }
   render() {

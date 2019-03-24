@@ -1,13 +1,8 @@
 import React from "react";
 
-class TodoHeader extends React.Component {
-  constructor() {
-    super();
-  }
+const TodoHeader = () => {
 
-  render() {
-    return <h1>Todo list</h1>;
-  }
+  return <h1>Todo list</h1>;
 }
 
 export default TodoHeader;
