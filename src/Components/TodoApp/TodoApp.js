@@ -1,61 +1,41 @@
 import React from "react";
 import moment from "moment";
-import TodoHeader from "../TodoHeader";
+import axios from "axios";
+import NewsHeader from "../NewsHeader";
 import TodoList from "../TodoList";
 import TodoForm from "../TodoForm";
 import Timer from "../Timer";
 
 class TodoApp extends React.Component {
-  constructor(props) {
-    super(props);
-    this.addItem = this.addItem.bind(this);
-    this.removeItem = this.removeItem.bind(this);
-    this.markTodoDone = this.markTodoDone.bind(this);
-    this.state = { todoItems: [], showTimer: false };
+  state = {newsFeed: []};
+  setData = (data) => {
+
   }
 
-  addItem(todoItem) {
-    var todoItems = this.state.todoItems;
-    todoItems.unshift({
-      index: todoItems.length + 1,
-      value: todoItem.newItemValue,
-      date: moment().format("ll"),
-      done: false
+  componentDidMount = () => {
+    var self = this;
+    axios.get(' https://cors-anywhere.herokuapp.com/https://assets.studio71.io/test/news_feed.json').then(
+      function(response) {
+        console.log(response.data.items);
+        self.setState({newsFeed: response.data.items});
+      }
+    ).catch(function (error) {
+      console.log(error);
     });
-    this.setState({ todoItems: todoItems });
   }
 
-  removeItem(itemIndex) {
-    var todoItems = this.state.todoItems;
-    todoItems.splice(itemIndex, 1);
-    this.setState({ todoItems: todoItems });
-  }
 
-  markTodoDone(itemIndex) {
-    const todoItems = this.state.todoItems;
-    var todo = todoItems[itemIndex];
-    todoItems.splice(itemIndex, 1);
-    todo.done = !todo.done;
-    todo.done ? todoItems.push(todo) : todoItems.unshift(todo);
-    this.setState({ todoItems: todoItems });
-  }
 
   render() {
     return (
       <div id="main">
-        <TodoHeader />
-        <button
-          onClick={() => this.setState({ showTimer: !this.state.showTimer })}
-        >
-          Toggle Timer
-        </button>
+        <NewsHeader />
+
         {this.state.showTimer ? <Timer /> : null}
         <TodoList
-          items={this.state.todoItems}
-          removeItem={this.removeItem}
-          markTodoDone={this.markTodoDone}
+          items={this.state.newsFeed}
         />
-        <TodoForm addItem={this.addItem} />
+
       </div>
     );
   }
