@@ -1,9 +1,8 @@
 import React from "react";
 
-class TodoListItem extends React.Component {
+class NewsFeedItem extends React.Component {
 
   render() {
-    console.log(this.props);
     return (
       <li className="list-group-item ">
         <div className="row" >
@@ -19,4 +18,4 @@ class TodoListItem extends React.Component {
   }
 }
 
-export default TodoListItem;
+export default NewsFeedItem;

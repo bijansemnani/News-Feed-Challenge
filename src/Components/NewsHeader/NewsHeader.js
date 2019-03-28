@@ -1,8 +1,8 @@
 import React from "react";
 
-const TodoHeader = () => {
+const NewsHeader = () => {
 
   return <h1>News Feed:</h1>;
 }
 
-export default TodoHeader;
+export default NewsHeader;

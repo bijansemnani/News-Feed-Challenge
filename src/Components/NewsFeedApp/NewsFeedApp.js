@@ -1,12 +1,9 @@
 import React from "react";
-import moment from "moment";
 import axios from "axios";
 import NewsHeader from "../NewsHeader";
-import TodoList from "../TodoList";
-import TodoForm from "../TodoForm";
-import Timer from "../Timer";
+import NewsFeed from "../NewsFeed";
 
-class TodoApp extends React.Component {
+class NewsFeedApp extends React.Component {
   state = {newsFeed: []};
   setData = (data) => {
 
@@ -30,9 +27,7 @@ class TodoApp extends React.Component {
     return (
       <div id="main">
         <NewsHeader />
-
-        {this.state.showTimer ? <Timer /> : null}
-        <TodoList
+        <NewsFeed
           items={this.state.newsFeed}
         />
 
@@ -41,4 +36,4 @@ class TodoApp extends React.Component {
   }
 }
 
-export default TodoApp;
+export default NewsFeedApp;
