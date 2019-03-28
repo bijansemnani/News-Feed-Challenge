@@ -1,5 +1,5 @@
 import React from "react";
-import TodoApp from "./Components/TodoApp";
+import NewsFeedApp from "./Components/NewsFeedApp";
 
 import "./App.css";
 
@@ -7,7 +7,7 @@ import "./App.css";
 class App extends React.Component{
   render(){
     return(
-      <TodoApp/>
+      <NewsFeedApp/>
     );
   }
 }
